@@ -6,7 +6,7 @@ orbs:
 jobs:
   test:
     macos:
-      xcode: "15.0"
+      xcode: "16.4"
     steps:
       - checkout
       - run:
