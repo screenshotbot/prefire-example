@@ -1,0 +1,43 @@
+version: 2.1
+
+orbs:
+  macos: circleci/macos@2
+
+jobs:
+  test:
+    macos:
+      xcode: "15.0"
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            # Update CocoaPods if project uses it
+            if [ -f "Podfile" ]; then
+              pod install
+            fi
+      - run:
+          name: Run Unit Tests
+          command: |
+            xcodebuild test \
+              -project PrefireExample.xcodeproj \
+              -scheme PrefireExample \
+              -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.0' \
+              -only-testing:PrefireExampleTests \
+              CODE_SIGN_IDENTITY="" \
+              CODE_SIGNING_REQUIRED=NO
+      - run:
+          name: Run UI Tests
+          command: |
+            xcodebuild test \
+              -project PrefireExample.xcodeproj \
+              -scheme PrefireExample \
+              -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.0' \
+              -only-testing:PrefireExampleUITests \
+              CODE_SIGN_IDENTITY="" \
+              CODE_SIGNING_REQUIRED=NO
+
+workflows:
+  test:
+    jobs:
+      - test
