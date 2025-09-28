@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A76CCD4A2E89A74D004E3C54 /* Prefire in Frameworks */ = {isa = PBXBuildFile; productRef = A76CCD492E89A74D004E3C54 /* Prefire */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		A7E41DC02E86A1B500FBEF3E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -59,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A76CCD4A2E89A74D004E3C54 /* Prefire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +77,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A76CCD482E89A74D004E3C54 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A7E41DA92E86A1B400FBEF3E = {
 			isa = PBXGroup;
 			children = (
 				A7E41DB42E86A1B400FBEF3E /* PrefireExample */,
 				A7E41DC22E86A1B500FBEF3E /* PrefireExampleTests */,
 				A7E41DCC2E86A1B500FBEF3E /* PrefireExampleUITests */,
+				A76CCD482E89A74D004E3C54 /* Frameworks */,
 				A7E41DB32E86A1B400FBEF3E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -128,6 +141,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				A76CCD4C2E89A836004E3C54 /* PBXTargetDependency */,
 				A7E41DC12E86A1B500FBEF3E /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
@@ -135,6 +149,7 @@
 			);
 			name = PrefireExampleTests;
 			packageProductDependencies = (
+				A76CCD492E89A74D004E3C54 /* Prefire */,
 			);
 			productName = PrefireExampleTests;
 			productReference = A7E41DBF2E86A1B500FBEF3E /* PrefireExampleTests.xctest */;
@@ -259,6 +274,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A76CCD4C2E89A836004E3C54 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = A76CCD4B2E89A836004E3C54 /* PrefireTestsPlugin */;
+		};
 		A7E41DC12E86A1B500FBEF3E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A7E41DB12E86A1B400FBEF3E /* PrefireExample */;
@@ -567,6 +586,19 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A76CCD492E89A74D004E3C54 /* Prefire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A76CCD2B2E89A549004E3C54 /* XCRemoteSwiftPackageReference "Prefire" */;
+			productName = Prefire;
+		};
+		A76CCD4B2E89A836004E3C54 /* PrefireTestsPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A76CCD2B2E89A549004E3C54 /* XCRemoteSwiftPackageReference "Prefire" */;
+			productName = "plugin:PrefireTestsPlugin";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A7E41DAA2E86A1B400FBEF3E /* Project object */;
 }
