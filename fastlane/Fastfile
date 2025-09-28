@@ -32,6 +32,7 @@ lane :tests do
     devices: ["iPhone 16"],
     max_concurrent_simulators: 1,
     concurrent_workers: 1,
-    disable_concurrent_testing: true
+    disable_concurrent_testing: true,
+    xcargs: "-skipPackagePluginValidation"
   )
 end
