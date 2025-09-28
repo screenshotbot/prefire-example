@@ -195,6 +195,9 @@
 			);
 			mainGroup = A7E41DA92E86A1B400FBEF3E;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				A76CCD2B2E89A549004E3C54 /* XCRemoteSwiftPackageReference "Prefire" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A7E41DB32E86A1B400FBEF3E /* Products */;
 			projectDirPath = "";
@@ -553,6 +556,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A76CCD2B2E89A549004E3C54 /* XCRemoteSwiftPackageReference "Prefire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/BarredEwe/Prefire.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = A7E41DAA2E86A1B400FBEF3E /* Project object */;
 }
