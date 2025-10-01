@@ -44,16 +44,12 @@ lane :screenshotbot_ci do
 end
 
 private_lane :fetch_screenshotbot do
-  sh("curl -o sb-recorder https://downloads.screenshotbot.io/recorder/darwin-arm64/recorder")
-  sh("chmod +x sb-recorder")
+  sh("curl https://screenshotbot.io/recorder.sh | sh")
 end
 
 private_lane :screenshotbot_upload_all do
   # Upload snapshot images
-  sh("./sb-recorder \
-    --channel #{ENV['SCREENSHOTBOT_CHANNEL'] || 'PrefireExample'} \
-    --directory #{Dir.pwd}/../PrefireExampleTests/__Snapshots__ \
-    --repo #{ENV['CIRCLE_REPOSITORY_URL'] || ENV['GIT_URL']} \
-    --commit #{ENV['CIRCLE_SHA1'] || `git rev-parse HEAD`.strip} \
-    --branch #{ENV['CIRCLE_BRANCH'] || `git branch --show-current`.strip}")
+  sh("~/screenshotbot/recorder \
+    --channel  'PrefireExample' \
+    --directory ../PrefireExampleTests/__Snapshots__ \
 end
