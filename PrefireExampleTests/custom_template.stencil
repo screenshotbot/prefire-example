@@ -46,9 +46,7 @@ import SnapshotTesting
     {% for type in types.types where type.implements.PrefireProvider or type.based.PrefireProvider or type|annotated:"PrefireProvider" %}
     func test_{{ type.name|lowerFirstLetter|replace:"_Previews", "" }}() {
         for preview in {{ type.name }}._allPreviews {
-            if let failure = assertSnapshots(for: PrefireSnapshot(preview, device: preview.device?.snapshotDevice() ?? deviceConfig)) {
-                XCTFail(failure)
-            }
+            assertSnapshots(for: PrefireSnapshot(preview, device: preview.device?.snapshotDevice() ?? deviceConfig))
         }
     }
     {%- if not forloop.last %}
@@ -78,9 +76,7 @@ import SnapshotTesting
         {% else %}
         let isScreen = false
         {% endif %}
-        if let failure = assertSnapshots(for: PrefireSnapshot(preview(), name: "{{ macroModel.displayName }}", isScreen: isScreen, device: deviceConfig)) {
-            XCTFail(failure)
-        }
+        assertSnapshots(for: PrefireSnapshot(preview(), name: "{{ macroModel.displayName }}", isScreen: isScreen, device: deviceConfig))
     }
     {%- if not forloop.last %}
 
@@ -109,9 +105,7 @@ import SnapshotTesting
             // Ignore specific device display scale
             snapshot.traits = UITraitCollection(displayScale: 2.0)
 
-            if let failure = assertSnapshot(for: snapshot) {
-                XCTFail(failure)
-            }
+            assertSnapshot(for: snapshot)
         }
 
         return nil
