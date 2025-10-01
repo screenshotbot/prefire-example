@@ -1,0 +1,3 @@
+test_configuration:
+  target: PrefireExample
+  template_file_path: custom_template.stencil
