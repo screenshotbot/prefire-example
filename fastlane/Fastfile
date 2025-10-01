@@ -36,3 +36,22 @@ lane :tests do
     xcargs: "-skipPackagePluginValidation"
   )
 end
+
+lane :screenshotbot_ci do
+  tests
+  fetch_screenshotbot
+  screenshotbot_upload_all
+end
+
+private_lane :fetch_screenshotbot do
+  sh("curl https://screenshotbot.io/recorder.sh | sh")
+end
+
+private_lane :screenshotbot_upload_all do
+  # Upload snapshot images
+  sh("pwd")
+  sh("~/screenshotbot/recorder \
+    --channel  'PrefireExample' \
+    --recursive \
+    --directory ../PrefireExampleTests/__Snapshots__/") 
+end
