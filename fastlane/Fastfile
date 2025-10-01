@@ -29,7 +29,7 @@ end
 lane :tests do
   run_tests(
     scheme: "PrefireExample",
-    devices: ["iPhone 16"],
+    destination: "platform=iOS Simulator,name=iPhone 16,arch=arm64",
     max_concurrent_simulators: 1,
     concurrent_workers: 1,
     disable_concurrent_testing: true,
