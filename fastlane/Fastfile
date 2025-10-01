@@ -49,7 +49,9 @@ end
 
 private_lane :screenshotbot_upload_all do
   # Upload snapshot images
+  sh("pwd")
   sh("~/screenshotbot/recorder \
     --channel  'PrefireExample' \
-    --directory ./PrefireExampleTests/__Snapshots__") 
+    --recursive \
+    --directory ../PrefireExampleTests/__Snapshots__/") 
 end
