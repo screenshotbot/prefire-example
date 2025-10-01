@@ -7,13 +7,26 @@ jobs:
       xcode: 16.4
     environment:
       FL_OUTPUT_DIR: output
-      FASTLANE_LANE: tests
+      FASTLANE_LANE: screenshotbot_ci
+      SCREENSHOTBOT_CHANNEL: PrefireExample
     resource_class: m4pro.medium
     steps:
       - checkout
       - run: bundle install
       - run:
-          name: Fastlane
+          name: Upload commit graph to Screenshotbot
+          command: |
+            curl -o sb-recorder https://downloads.screenshotbot.io/recorder/darwin-arm64/recorder
+            chmod +x sb-recorder
+            ./sb-recorder \
+              --channel ${SCREENSHOTBOT_CHANNEL} \
+              --upload-commit-graph \
+              --repo ${CIRCLE_REPOSITORY_URL} \
+              --commit ${CIRCLE_SHA1} \
+              --branch ${CIRCLE_BRANCH} \
+              --main-branch main
+      - run:
+          name: Run tests and upload to Screenshotbot
           no_output_timeout: 30m
           command: bundle exec fastlane $FASTLANE_LANE
       - store_artifacts:
